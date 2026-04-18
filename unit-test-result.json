@@ -1,0 +1,1732 @@
+{
+	"id": "b126aba1-017a-4b27-bd82-5d67e70ee93a",
+	"name": "UNIT TEST",
+	"timestamp": "2026-04-18T08:04:54.457Z",
+	"collection_id": "21771481-1184acc4-fc76-4f36-8c13-a0a5a462d91a",
+	"folder_id": 0,
+	"environment_id": "0",
+	"totalPass": 95,
+	"delay": 0,
+	"persist": true,
+	"status": "finished",
+	"startedAt": "2026-04-18T08:04:46.849Z",
+	"totalFail": 40,
+	"results": [
+		{
+			"id": "c4480eae-cb66-4079-815f-52573f7c0f06",
+			"name": "[GET] /objects - Happy Path: List all objects",
+			"url": "https://api.restful-api.dev/objects",
+			"time": 535,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is under 1000ms": true,
+				"Response is a non-empty array": true,
+				"Each object has id (string) and name (string)": true,
+				"Content-Type is application/json": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is under 1000ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response is a non-empty array": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Each object has id (string) and name (string)": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type is application/json": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				535
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is under 1000ms": true,
+					"Response is a non-empty array": true,
+					"Each object has id (string) and name (string)": true,
+					"Content-Type is application/json": true
+				}
+			]
+		},
+		{
+			"id": "3b980845-4b5b-4fec-9ad3-85dcb216fa81",
+			"name": "[GET] /objects - Happy Path: Filter object by random an ID",
+			"url": "https://api.restful-api.dev/objects?id=1",
+			"time": 112,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is under 1000ms": true,
+				"Response is an array": true,
+				"All requested IDs are present in the response": true,
+				"No IDs returned outside the requested filter": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is under 1000ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response is an array": {
+					"pass": 1,
+					"fail": 0
+				},
+				"All requested IDs are present in the response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"No IDs returned outside the requested filter": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				112
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is under 1000ms": true,
+					"Response is an array": true,
+					"All requested IDs are present in the response": true,
+					"No IDs returned outside the requested filter": true
+				}
+			]
+		},
+		{
+			"id": "95803b5b-95fb-4e3e-96f5-c6fb8254cfed",
+			"name": "[GET] /objects - Happy Path: Filter objects by multiple random IDs",
+			"url": "https://api.restful-api.dev/objects?id=1&id=2&id=10",
+			"time": 114,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is under 1000ms": true,
+				"Response is an array": true,
+				"All requested IDs are present in the response": true,
+				"No IDs returned outside the requested filter": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is under 1000ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response is an array": {
+					"pass": 1,
+					"fail": 0
+				},
+				"All requested IDs are present in the response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"No IDs returned outside the requested filter": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				114
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is under 1000ms": true,
+					"Response is an array": true,
+					"All requested IDs are present in the response": true,
+					"No IDs returned outside the requested filter": true
+				}
+			]
+		},
+		{
+			"id": "7346cf76-f75d-4d9a-9f20-627333a651ce",
+			"name": "[GET] /objects - Negative: Filter with non-existent ID",
+			"url": "https://api.restful-api.dev/objects?id=999",
+			"time": 111,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is under 1000ms": true,
+				"Returns empty array for non-existent filter ID": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is under 1000ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Returns empty array for non-existent filter ID": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				111
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is under 1000ms": true,
+					"Returns empty array for non-existent filter ID": true
+				}
+			]
+		},
+		{
+			"id": "e7a1d17a-2ad7-4acc-8885-a054b6edc77d",
+			"name": "[GET] /objects - Edge Case: Filter by mixed existent and non-existent IDs",
+			"url": "https://api.restful-api.dev/objects?id=6&id=999",
+			"time": 114,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is under 1000ms": true,
+				"Response is an array": true,
+				"Existent ID is returned in response": true,
+				"Non-existent ID is not present in response": true,
+				"Response contains only the one existent object": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is under 1000ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response is an array": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Existent ID is returned in response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Non-existent ID is not present in response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response contains only the one existent object": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				114
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is under 1000ms": true,
+					"Response is an array": true,
+					"Existent ID is returned in response": true,
+					"Non-existent ID is not present in response": true,
+					"Response contains only the one existent object": true
+				}
+			]
+		},
+		{
+			"id": "9c8b4bef-68ab-48ec-97e7-4fbbc0ec103b",
+			"name": "[GET] /objects - Edge Case: Filter by duplicate IDs",
+			"url": "https://api.restful-api.dev/objects?id=8&id=8&id=8",
+			"time": 113,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is under 1000ms": true,
+				"Duplicate IDs do not cause a server error": true,
+				"Duplicate IDs do not produce duplicate rows": false
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is under 1000ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Duplicate IDs do not cause a server error": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Duplicate IDs do not produce duplicate rows": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				113
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is under 1000ms": true,
+					"Duplicate IDs do not cause a server error": true,
+					"Duplicate IDs do not produce duplicate rows": false
+				}
+			]
+		},
+		{
+			"id": "1ed67b5e-e3fe-42f8-8cb6-28f158af448e",
+			"name": "[GET] /objects - Business Logic: Full array schema and response time",
+			"url": "https://api.restful-api.dev/objects",
+			"time": 112,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Response time is under 1000ms": true,
+				"Schema: every object has id (string), name (string), data (object|null)": true,
+				"No unexpected top-level keys on list items": true
+			},
+			"testPassFailCounts": {
+				"Response time is under 1000ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Schema: every object has id (string), name (string), data (object|null)": {
+					"pass": 1,
+					"fail": 0
+				},
+				"No unexpected top-level keys on list items": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				112
+			],
+			"allTests": [
+				{
+					"Response time is under 1000ms": true,
+					"Schema: every object has id (string), name (string), data (object|null)": true,
+					"No unexpected top-level keys on list items": true
+				}
+			]
+		},
+		{
+			"id": "714e00a7-5afc-4502-9db3-07859d6b9042",
+			"name": "[GET] /objects/{id} - Happy Path: Get object by valid ID",
+			"url": "https://api.restful-api.dev/objects/5",
+			"time": 113,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is under 1000ms": true,
+				"Returned id matches the requested random ID": true,
+				"Response has non-empty name": true,
+				"Content-Type is application/json": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is under 1000ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Returned id matches the requested random ID": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response has non-empty name": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type is application/json": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				113
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is under 1000ms": true,
+					"Returned id matches the requested random ID": true,
+					"Response has non-empty name": true,
+					"Content-Type is application/json": true
+				}
+			]
+		},
+		{
+			"id": "db1d154a-3b6c-4d9b-ae03-44b6e5a3f7fa",
+			"name": "[GET] /objects/{id} - Happy Path: Get object with null data (ID=2)",
+			"url": "https://api.restful-api.dev/objects/2",
+			"time": 112,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is under 1000ms": true,
+				"data field is explicitly null": true,
+				"id and name are still present": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is under 1000ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"data field is explicitly null": {
+					"pass": 1,
+					"fail": 0
+				},
+				"id and name are still present": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				112
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is under 1000ms": true,
+					"data field is explicitly null": true,
+					"id and name are still present": true
+				}
+			]
+		},
+		{
+			"id": "4b98a579-2d6b-4dd4-b316-6c952b287e5e",
+			"name": "[GET] /objects/{id} - Negative: Non-existent ID returns 404",
+			"url": "https://api.restful-api.dev/objects/999",
+			"time": 111,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"Status code is 404": true,
+				"Response time is under 1000ms": true,
+				"Error body has error field": true
+			},
+			"testPassFailCounts": {
+				"Status code is 404": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is under 1000ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Error body has error field": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				111
+			],
+			"allTests": [
+				{
+					"Status code is 404": true,
+					"Response time is under 1000ms": true,
+					"Error body has error field": true
+				}
+			]
+		},
+		{
+			"id": "82798a6f-ea7d-4498-9507-1823e8e4a97e",
+			"name": "[GET] /objects/{id} - Negative: Non-numeric string ID",
+			"url": "https://api.restful-api.dev/objects/invalid_id",
+			"time": 163,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"Status code is 4xx for invalid ID format": true,
+				"Response time is under 1000ms": true,
+				"Server does not crash (not 5xx)": true
+			},
+			"testPassFailCounts": {
+				"Status code is 4xx for invalid ID format": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is under 1000ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Server does not crash (not 5xx)": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				163
+			],
+			"allTests": [
+				{
+					"Status code is 4xx for invalid ID format": true,
+					"Response time is under 1000ms": true,
+					"Server does not crash (not 5xx)": true
+				}
+			]
+		},
+		{
+			"id": "2ca7e264-2b59-4550-bcae-397ca5ade7f1",
+			"name": "[GET] /objects/{id} - Edge Case: First available ID (ID=1)",
+			"url": "https://api.restful-api.dev/objects/1",
+			"time": 114,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is under 1000ms": true,
+				"ID in response matches requested ID": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is under 1000ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"ID in response matches requested ID": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				114
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is under 1000ms": true,
+					"ID in response matches requested ID": true
+				}
+			]
+		},
+		{
+			"id": "f651f7f6-6fa5-4af7-8583-3ba3b88e9d66",
+			"name": "[GET] /objects/{id} - Business Logic: Schema validation",
+			"url": "https://api.restful-api.dev/objects/5",
+			"time": 114,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Response time is under 1000ms": true,
+				"Schema: id is a non-empty string": true,
+				"Schema: name is a non-empty string": true,
+				"Schema: data is an object or null": true,
+				"Schema: only allowed top-level keys present": true
+			},
+			"testPassFailCounts": {
+				"Response time is under 1000ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Schema: id is a non-empty string": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Schema: name is a non-empty string": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Schema: data is an object or null": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Schema: only allowed top-level keys present": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				114
+			],
+			"allTests": [
+				{
+					"Response time is under 1000ms": true,
+					"Schema: id is a non-empty string": true,
+					"Schema: name is a non-empty string": true,
+					"Schema: data is an object or null": true,
+					"Schema: only allowed top-level keys present": true
+				}
+			]
+		},
+		{
+			"id": "d6fd6158-3508-43f8-bccd-6ca1e99ea0ba",
+			"name": "[POST] /objects - Happy Path: Create object with name and full data",
+			"url": "https://api.restful-api.dev/objects",
+			"time": 131,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is under 1000ms": true,
+				"Auto-generated id is present and non-empty": true,
+				"Name is echoed back correctly": true,
+				"createdAt timestamp is present": false,
+				"data fields match submitted payload": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is under 1000ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Auto-generated id is present and non-empty": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Name is echoed back correctly": {
+					"pass": 1,
+					"fail": 0
+				},
+				"createdAt timestamp is present": {
+					"pass": 0,
+					"fail": 1
+				},
+				"data fields match submitted payload": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				131
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is under 1000ms": true,
+					"Auto-generated id is present and non-empty": true,
+					"Name is echoed back correctly": true,
+					"createdAt timestamp is present": false,
+					"data fields match submitted payload": true
+				}
+			]
+		},
+		{
+			"id": "4fd36dab-b8c4-48bc-ba61-d42feb45b725",
+			"name": "[POST] /objects - Happy Path: Create object with null data",
+			"url": "https://api.restful-api.dev/objects",
+			"time": 121,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is under 1000ms": true,
+				"data field is null in response": true,
+				"Auto-generated id is non-empty": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is under 1000ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"data field is null in response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Auto-generated id is non-empty": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				121
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is under 1000ms": true,
+					"data field is null in response": true,
+					"Auto-generated id is non-empty": true
+				}
+			]
+		},
+		{
+			"id": "ad2ed968-2b4c-4d0b-bfe1-aebc4ba3e8e9",
+			"name": "[POST] /objects - Negative: Missing required name field",
+			"url": "https://api.restful-api.dev/objects",
+			"time": 108,
+			"responseCode": {
+				"code": 405,
+				"name": "Method Not Allowed"
+			},
+			"tests": {
+				"Response time is under 1000ms": true,
+				"Returns 4xx or creates without name (API permissive check)": false,
+				"Server does not crash (not 5xx)": true
+			},
+			"testPassFailCounts": {
+				"Response time is under 1000ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Returns 4xx or creates without name (API permissive check)": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Server does not crash (not 5xx)": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				108
+			],
+			"allTests": [
+				{
+					"Response time is under 1000ms": true,
+					"Returns 4xx or creates without name (API permissive check)": false,
+					"Server does not crash (not 5xx)": true
+				}
+			]
+		},
+		{
+			"id": "21bedac8-fb29-4c76-8818-9b9c417155d4",
+			"name": "[POST] /objects - Negative: Empty JSON body",
+			"url": "https://api.restful-api.dev/objects",
+			"time": 109,
+			"responseCode": {
+				"code": 405,
+				"name": "Method Not Allowed"
+			},
+			"tests": {
+				"Response time is under 1000ms": true,
+				"API handles empty body without 5xx crash": false
+			},
+			"testPassFailCounts": {
+				"Response time is under 1000ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"API handles empty body without 5xx crash": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				109
+			],
+			"allTests": [
+				{
+					"Response time is under 1000ms": true,
+					"API handles empty body without 5xx crash": false
+				}
+			]
+		},
+		{
+			"id": "40c061ae-3a66-4704-910f-9ba834c4c508",
+			"name": "[POST] /objects - Negative: Malformed JSON body",
+			"url": "https://api.restful-api.dev/objects",
+			"time": 111,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Response time is under 1000ms": true,
+				"Returns 400 or 500 for malformed JSON": true,
+				"Server returns a parseable response body": true
+			},
+			"testPassFailCounts": {
+				"Response time is under 1000ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Returns 400 or 500 for malformed JSON": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Server returns a parseable response body": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				111
+			],
+			"allTests": [
+				{
+					"Response time is under 1000ms": true,
+					"Returns 400 or 500 for malformed JSON": true,
+					"Server returns a parseable response body": true
+				}
+			]
+		},
+		{
+			"id": "e18303a0-2b25-4959-be7d-e384f91711e2",
+			"name": "[POST] /objects - Edge Case: Name with special and Unicode characters",
+			"url": "https://api.restful-api.dev/objects",
+			"time": 109,
+			"responseCode": {
+				"code": 405,
+				"name": "Method Not Allowed"
+			},
+			"tests": {
+				"Status code is 200": false,
+				"Response time is under 1000ms": true,
+				"Special characters preserved in name": false
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Response time is under 1000ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Special characters preserved in name": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				109
+			],
+			"allTests": [
+				{
+					"Status code is 200": false,
+					"Response time is under 1000ms": true,
+					"Special characters preserved in name": false
+				}
+			]
+		},
+		{
+			"id": "f1e805eb-ed72-433c-ac3f-5e1c4bb4279c",
+			"name": "[POST] /objects - Edge Case: Very long name (300 characters)",
+			"url": "https://api.restful-api.dev/objects",
+			"time": 109,
+			"responseCode": {
+				"code": 405,
+				"name": "Method Not Allowed"
+			},
+			"tests": {
+				"Response time is under 1000ms": true,
+				"API handles 300-char name without 5xx crash": true,
+				"Returns 200 or validation error for oversized name": false
+			},
+			"testPassFailCounts": {
+				"Response time is under 1000ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"API handles 300-char name without 5xx crash": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Returns 200 or validation error for oversized name": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				109
+			],
+			"allTests": [
+				{
+					"Response time is under 1000ms": true,
+					"API handles 300-char name without 5xx crash": true,
+					"Returns 200 or validation error for oversized name": false
+				}
+			]
+		},
+		{
+			"id": "f764e1af-042a-4292-a613-1f7ed619c0a0",
+			"name": "[POST] /objects - Edge Case: Deeply nested data payload",
+			"url": "https://api.restful-api.dev/objects",
+			"time": 108,
+			"responseCode": {
+				"code": 405,
+				"name": "Method Not Allowed"
+			},
+			"tests": {
+				"Status code is 200": false,
+				"Response time is under 1000ms": true,
+				"Deeply nested data is stored and returned intact": false
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Response time is under 1000ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Deeply nested data is stored and returned intact": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				108
+			],
+			"allTests": [
+				{
+					"Status code is 200": false,
+					"Response time is under 1000ms": true,
+					"Deeply nested data is stored and returned intact": false
+				}
+			]
+		},
+		{
+			"id": "d97c9666-2d85-4f33-8d70-5863d06ba8f3",
+			"name": "[POST] /objects - Business Logic: Auto ID, ISO createdAt, no updatedAt",
+			"url": "https://api.restful-api.dev/objects",
+			"time": 110,
+			"responseCode": {
+				"code": 405,
+				"name": "Method Not Allowed"
+			},
+			"tests": {
+				"Response time is under 1000ms": true,
+				"ID is server-generated (non-empty string)": false,
+				"createdAt is a valid ISO 8601 timestamp": false,
+				"createdAt is within the last 60 seconds": false,
+				"updatedAt is NOT present on a fresh create": true
+			},
+			"testPassFailCounts": {
+				"Response time is under 1000ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"ID is server-generated (non-empty string)": {
+					"pass": 0,
+					"fail": 1
+				},
+				"createdAt is a valid ISO 8601 timestamp": {
+					"pass": 0,
+					"fail": 1
+				},
+				"createdAt is within the last 60 seconds": {
+					"pass": 0,
+					"fail": 1
+				},
+				"updatedAt is NOT present on a fresh create": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				110
+			],
+			"allTests": [
+				{
+					"Response time is under 1000ms": true,
+					"ID is server-generated (non-empty string)": false,
+					"createdAt is a valid ISO 8601 timestamp": false,
+					"createdAt is within the last 60 seconds": false,
+					"updatedAt is NOT present on a fresh create": true
+				}
+			]
+		},
+		{
+			"id": "8e30d4ee-986a-4a19-8ff9-ebda21e33e12",
+			"name": "[PUT] /objects/{id} - Happy Path: Full replacement of existing object",
+			"url": "https://api.restful-api.dev/objects/",
+			"time": 109,
+			"responseCode": {
+				"code": 405,
+				"name": "Method Not Allowed"
+			},
+			"tests": {
+				"Status code is 200": false,
+				"Response time is under 1000ms": true,
+				"Name is fully replaced": false,
+				"data is replaced — old fields removed": false,
+				"updatedAt timestamp is present": false,
+				"ID is unchanged after PUT": false
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Response time is under 1000ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Name is fully replaced": {
+					"pass": 0,
+					"fail": 1
+				},
+				"data is replaced — old fields removed": {
+					"pass": 0,
+					"fail": 1
+				},
+				"updatedAt timestamp is present": {
+					"pass": 0,
+					"fail": 1
+				},
+				"ID is unchanged after PUT": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				109
+			],
+			"allTests": [
+				{
+					"Status code is 200": false,
+					"Response time is under 1000ms": true,
+					"Name is fully replaced": false,
+					"data is replaced — old fields removed": false,
+					"updatedAt timestamp is present": false,
+					"ID is unchanged after PUT": false
+				}
+			]
+		},
+		{
+			"id": "22c0dfca-091c-49d5-a400-e7bc08feac23",
+			"name": "[PUT] /objects/{id} - Negative: Non-existent ID returns 404",
+			"url": "https://api.restful-api.dev/objects/999",
+			"time": 109,
+			"responseCode": {
+				"code": 405,
+				"name": "Method Not Allowed"
+			},
+			"tests": {
+				"Status code is 404 for non-existent ID": false,
+				"Response time is under 1000ms": true,
+				"Error body has error field": true
+			},
+			"testPassFailCounts": {
+				"Status code is 404 for non-existent ID": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Response time is under 1000ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Error body has error field": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				109
+			],
+			"allTests": [
+				{
+					"Status code is 404 for non-existent ID": false,
+					"Response time is under 1000ms": true,
+					"Error body has error field": true
+				}
+			]
+		},
+		{
+			"id": "c79e548e-d505-4103-8e4a-e61fca0783b4",
+			"name": "[PUT] /objects/{id} - Negative: Missing name in body",
+			"url": "https://api.restful-api.dev/objects/",
+			"time": 113,
+			"responseCode": {
+				"code": 405,
+				"name": "Method Not Allowed"
+			},
+			"tests": {
+				"Response time is under 1000ms": true,
+				"API returns 200 or 4xx — no server crash": false
+			},
+			"testPassFailCounts": {
+				"Response time is under 1000ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"API returns 200 or 4xx — no server crash": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				113
+			],
+			"allTests": [
+				{
+					"Response time is under 1000ms": true,
+					"API returns 200 or 4xx — no server crash": false
+				}
+			]
+		},
+		{
+			"id": "86b334ce-9174-46bc-8aa6-a66d770ceff4",
+			"name": "[PUT] /objects/{id} - Edge Case: Replace data with empty object",
+			"url": "https://api.restful-api.dev/objects/",
+			"time": 162,
+			"responseCode": {
+				"code": 405,
+				"name": "Method Not Allowed"
+			},
+			"tests": {
+				"Status code is 200": false,
+				"Response time is under 1000ms": true,
+				"data is replaced with an empty object": false
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Response time is under 1000ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"data is replaced with an empty object": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				162
+			],
+			"allTests": [
+				{
+					"Status code is 200": false,
+					"Response time is under 1000ms": true,
+					"data is replaced with an empty object": false
+				}
+			]
+		},
+		{
+			"id": "23907888-687f-4acb-8811-9ed93a2ffef0",
+			"name": "[PUT] /objects/{id} - Business Logic: updatedAt is recent and response time",
+			"url": "https://api.restful-api.dev/objects/",
+			"time": 111,
+			"responseCode": {
+				"code": 405,
+				"name": "Method Not Allowed"
+			},
+			"tests": {
+				"Response time is under 1000ms": true,
+				"updatedAt is a valid ISO 8601 timestamp": false,
+				"updatedAt is within the last 60 seconds": false,
+				"Content-Type is application/json": true
+			},
+			"testPassFailCounts": {
+				"Response time is under 1000ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"updatedAt is a valid ISO 8601 timestamp": {
+					"pass": 0,
+					"fail": 1
+				},
+				"updatedAt is within the last 60 seconds": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Content-Type is application/json": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				111
+			],
+			"allTests": [
+				{
+					"Response time is under 1000ms": true,
+					"updatedAt is a valid ISO 8601 timestamp": false,
+					"updatedAt is within the last 60 seconds": false,
+					"Content-Type is application/json": true
+				}
+			]
+		},
+		{
+			"id": "3a520ad5-3ef4-499d-9af6-e11385c9a502",
+			"name": "[PATCH] /objects/{id} - Happy Path: Partial update — name only",
+			"url": "https://api.restful-api.dev/objects/",
+			"time": 199,
+			"responseCode": {
+				"code": 405,
+				"name": "Method Not Allowed"
+			},
+			"tests": {
+				"Status code is 200": false,
+				"Response time is under 1000ms": true,
+				"Name is updated to the patched value": false,
+				"data is preserved after name-only patch": false,
+				"updatedAt is present": false
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Response time is under 1000ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Name is updated to the patched value": {
+					"pass": 0,
+					"fail": 1
+				},
+				"data is preserved after name-only patch": {
+					"pass": 0,
+					"fail": 1
+				},
+				"updatedAt is present": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				199
+			],
+			"allTests": [
+				{
+					"Status code is 200": false,
+					"Response time is under 1000ms": true,
+					"Name is updated to the patched value": false,
+					"data is preserved after name-only patch": false,
+					"updatedAt is present": false
+				}
+			]
+		},
+		{
+			"id": "1a744168-f2ea-4015-be39-5c2528eeb518",
+			"name": "[PATCH] /objects/{id} - Happy Path: Partial update — data field only",
+			"url": "https://api.restful-api.dev/objects/",
+			"time": 126,
+			"responseCode": {
+				"code": 405,
+				"name": "Method Not Allowed"
+			},
+			"tests": {
+				"Status code is 200": false,
+				"Response time is under 1000ms": true,
+				"data reflects the patched values": false,
+				"name is unchanged after data-only patch": false
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Response time is under 1000ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"data reflects the patched values": {
+					"pass": 0,
+					"fail": 1
+				},
+				"name is unchanged after data-only patch": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				126
+			],
+			"allTests": [
+				{
+					"Status code is 200": false,
+					"Response time is under 1000ms": true,
+					"data reflects the patched values": false,
+					"name is unchanged after data-only patch": false
+				}
+			]
+		},
+		{
+			"id": "718cbcff-3f9a-4b31-80bd-44820689b5d3",
+			"name": "[PATCH] /objects/{id} - Negative: Non-existent ID returns 404",
+			"url": "https://api.restful-api.dev/objects/14",
+			"time": 115,
+			"responseCode": {
+				"code": 405,
+				"name": "Method Not Allowed"
+			},
+			"tests": {
+				"Status code is 404": false,
+				"Response time is under 1000ms": true,
+				"Error body has error field": true
+			},
+			"testPassFailCounts": {
+				"Status code is 404": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Response time is under 1000ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Error body has error field": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				115
+			],
+			"allTests": [
+				{
+					"Status code is 404": false,
+					"Response time is under 1000ms": true,
+					"Error body has error field": true
+				}
+			]
+		},
+		{
+			"id": "5a3b6d5f-4739-479e-b2a0-ee03c754d229",
+			"name": "[PATCH] /objects/{id} - Edge Case: Empty patch body",
+			"url": "https://api.restful-api.dev/objects/",
+			"time": 113,
+			"responseCode": {
+				"code": 405,
+				"name": "Method Not Allowed"
+			},
+			"tests": {
+				"Response time is under 1000ms": true,
+				"Empty patch does not cause 5xx crash": true,
+				"Returns 200 or 400 for empty patch body": false
+			},
+			"testPassFailCounts": {
+				"Response time is under 1000ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Empty patch does not cause 5xx crash": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Returns 200 or 400 for empty patch body": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				113
+			],
+			"allTests": [
+				{
+					"Response time is under 1000ms": true,
+					"Empty patch does not cause 5xx crash": true,
+					"Returns 200 or 400 for empty patch body": false
+				}
+			]
+		},
+		{
+			"id": "e1e69f5e-1398-4ccf-a948-cdb845900570",
+			"name": "[PATCH] /objects/{id} - Business Logic: updatedAt reflects patch time",
+			"url": "https://api.restful-api.dev/objects/",
+			"time": 117,
+			"responseCode": {
+				"code": 405,
+				"name": "Method Not Allowed"
+			},
+			"tests": {
+				"Response time is under 1000ms": true,
+				"updatedAt is a valid ISO 8601 timestamp": false,
+				"updatedAt is within the last 60 seconds": false
+			},
+			"testPassFailCounts": {
+				"Response time is under 1000ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"updatedAt is a valid ISO 8601 timestamp": {
+					"pass": 0,
+					"fail": 1
+				},
+				"updatedAt is within the last 60 seconds": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				117
+			],
+			"allTests": [
+				{
+					"Response time is under 1000ms": true,
+					"updatedAt is a valid ISO 8601 timestamp": false,
+					"updatedAt is within the last 60 seconds": false
+				}
+			]
+		},
+		{
+			"id": "7fc41957-6311-4b97-95cc-f6f590b484b1",
+			"name": "[DELETE] /objects/{id} - Happy Path: Delete existing object",
+			"url": "https://api.restful-api.dev/objects/",
+			"time": 113,
+			"responseCode": {
+				"code": 405,
+				"name": "Method Not Allowed"
+			},
+			"tests": {
+				"Status code is 200": false,
+				"Response time is under 1000ms": true,
+				"Response body has a message field": false,
+				"Deletion message references the deleted object ID": false
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Response time is under 1000ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response body has a message field": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Deletion message references the deleted object ID": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				113
+			],
+			"allTests": [
+				{
+					"Status code is 200": false,
+					"Response time is under 1000ms": true,
+					"Response body has a message field": false,
+					"Deletion message references the deleted object ID": false
+				}
+			]
+		},
+		{
+			"id": "7a762b43-5dbb-4fa5-a0a6-84283d7a7812",
+			"name": "[DELETE] /objects/{id} - Negative: Delete non-existent ID returns 404",
+			"url": "https://api.restful-api.dev/objects/14",
+			"time": 128,
+			"responseCode": {
+				"code": 405,
+				"name": "Method Not Allowed"
+			},
+			"tests": {
+				"Status code is 404": false,
+				"Response time is under 1000ms": true,
+				"Error body has error field": true
+			},
+			"testPassFailCounts": {
+				"Status code is 404": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Response time is under 1000ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Error body has error field": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				128
+			],
+			"allTests": [
+				{
+					"Status code is 404": false,
+					"Response time is under 1000ms": true,
+					"Error body has error field": true
+				}
+			]
+		},
+		{
+			"id": "8392299f-d8ff-445e-9ae8-f1977fad1e68",
+			"name": "[DELETE] /objects/{id} - Edge Case: Delete already-deleted object",
+			"url": "https://api.restful-api.dev/objects/",
+			"time": 114,
+			"responseCode": {
+				"code": 405,
+				"name": "Method Not Allowed"
+			},
+			"tests": {
+				"Response time is under 1000ms": true,
+				"Second delete returns 404 (not idempotent success)": false,
+				"Error body returned for second delete": true
+			},
+			"testPassFailCounts": {
+				"Response time is under 1000ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Second delete returns 404 (not idempotent success)": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Error body returned for second delete": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				114
+			],
+			"allTests": [
+				{
+					"Response time is under 1000ms": true,
+					"Second delete returns 404 (not idempotent success)": false,
+					"Error body returned for second delete": true
+				}
+			]
+		},
+		{
+			"id": "a538d731-7262-4426-9d61-1ee502da7354",
+			"name": "[DELETE] /objects/{id} - Business Logic: Response shape and response time",
+			"url": "https://api.restful-api.dev/objects/",
+			"time": 113,
+			"responseCode": {
+				"code": 405,
+				"name": "Method Not Allowed"
+			},
+			"tests": {
+				"Response time is under 1000ms": true,
+				"Response contains only message field (no object data leaked)": false,
+				"Content-Type is application/json": true
+			},
+			"testPassFailCounts": {
+				"Response time is under 1000ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response contains only message field (no object data leaked)": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Content-Type is application/json": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				113
+			],
+			"allTests": [
+				{
+					"Response time is under 1000ms": true,
+					"Response contains only message field (no object data leaked)": false,
+					"Content-Type is application/json": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 4696,
+	"collection": {
+		"requests": [
+			{
+				"id": "c4480eae-cb66-4079-815f-52573f7c0f06",
+				"method": "GET"
+			},
+			{
+				"id": "3b980845-4b5b-4fec-9ad3-85dcb216fa81",
+				"method": "GET"
+			},
+			{
+				"id": "95803b5b-95fb-4e3e-96f5-c6fb8254cfed",
+				"method": "GET"
+			},
+			{
+				"id": "7346cf76-f75d-4d9a-9f20-627333a651ce",
+				"method": "GET"
+			},
+			{
+				"id": "e7a1d17a-2ad7-4acc-8885-a054b6edc77d",
+				"method": "GET"
+			},
+			{
+				"id": "9c8b4bef-68ab-48ec-97e7-4fbbc0ec103b",
+				"method": "GET"
+			},
+			{
+				"id": "1ed67b5e-e3fe-42f8-8cb6-28f158af448e",
+				"method": "GET"
+			},
+			{
+				"id": "714e00a7-5afc-4502-9db3-07859d6b9042",
+				"method": "GET"
+			},
+			{
+				"id": "db1d154a-3b6c-4d9b-ae03-44b6e5a3f7fa",
+				"method": "GET"
+			},
+			{
+				"id": "4b98a579-2d6b-4dd4-b316-6c952b287e5e",
+				"method": "GET"
+			},
+			{
+				"id": "82798a6f-ea7d-4498-9507-1823e8e4a97e",
+				"method": "GET"
+			},
+			{
+				"id": "2ca7e264-2b59-4550-bcae-397ca5ade7f1",
+				"method": "GET"
+			},
+			{
+				"id": "f651f7f6-6fa5-4af7-8583-3ba3b88e9d66",
+				"method": "GET"
+			},
+			{
+				"id": "d6fd6158-3508-43f8-bccd-6ca1e99ea0ba",
+				"method": "POST"
+			},
+			{
+				"id": "4fd36dab-b8c4-48bc-ba61-d42feb45b725",
+				"method": "POST"
+			},
+			{
+				"id": "ad2ed968-2b4c-4d0b-bfe1-aebc4ba3e8e9",
+				"method": "POST"
+			},
+			{
+				"id": "21bedac8-fb29-4c76-8818-9b9c417155d4",
+				"method": "POST"
+			},
+			{
+				"id": "40c061ae-3a66-4704-910f-9ba834c4c508",
+				"method": "POST"
+			},
+			{
+				"id": "e18303a0-2b25-4959-be7d-e384f91711e2",
+				"method": "POST"
+			},
+			{
+				"id": "f1e805eb-ed72-433c-ac3f-5e1c4bb4279c",
+				"method": "POST"
+			},
+			{
+				"id": "f764e1af-042a-4292-a613-1f7ed619c0a0",
+				"method": "POST"
+			},
+			{
+				"id": "d97c9666-2d85-4f33-8d70-5863d06ba8f3",
+				"method": "POST"
+			},
+			{
+				"id": "8e30d4ee-986a-4a19-8ff9-ebda21e33e12",
+				"method": "PUT"
+			},
+			{
+				"id": "22c0dfca-091c-49d5-a400-e7bc08feac23",
+				"method": "PUT"
+			},
+			{
+				"id": "c79e548e-d505-4103-8e4a-e61fca0783b4",
+				"method": "PUT"
+			},
+			{
+				"id": "86b334ce-9174-46bc-8aa6-a66d770ceff4",
+				"method": "PUT"
+			},
+			{
+				"id": "23907888-687f-4acb-8811-9ed93a2ffef0",
+				"method": "PUT"
+			},
+			{
+				"id": "3a520ad5-3ef4-499d-9af6-e11385c9a502",
+				"method": "PATCH"
+			},
+			{
+				"id": "1a744168-f2ea-4015-be39-5c2528eeb518",
+				"method": "PATCH"
+			},
+			{
+				"id": "718cbcff-3f9a-4b31-80bd-44820689b5d3",
+				"method": "PATCH"
+			},
+			{
+				"id": "5a3b6d5f-4739-479e-b2a0-ee03c754d229",
+				"method": "PATCH"
+			},
+			{
+				"id": "e1e69f5e-1398-4ccf-a948-cdb845900570",
+				"method": "PATCH"
+			},
+			{
+				"id": "7fc41957-6311-4b97-95cc-f6f590b484b1",
+				"method": "DELETE"
+			},
+			{
+				"id": "7a762b43-5dbb-4fa5-a0a6-84283d7a7812",
+				"method": "DELETE"
+			},
+			{
+				"id": "8392299f-d8ff-445e-9ae8-f1977fad1e68",
+				"method": "DELETE"
+			},
+			{
+				"id": "a538d731-7262-4426-9d61-1ee502da7354",
+				"method": "DELETE"
+			}
+		]
+	}
+}

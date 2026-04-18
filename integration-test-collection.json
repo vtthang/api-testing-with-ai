@@ -1,0 +1,556 @@
+{
+  "info": {
+    "_postman_id": "1acf857b-8478-4fd8-bd9b-d0c266288e59",
+    "name": "INTEGRATION TEST FLOW",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "21771481"
+  },
+  "item": [
+    {
+      "name": "FLOW Full CRUD",
+      "item": [
+        {
+          "name": "[FLOW] Full CRUD - Step 1: Create new object",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('[CRUD Step 1] Status 200 — object created', function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test('[CRUD Step 1] Response time under 1000ms', function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(1000);",
+                  "});",
+                  "",
+                  "pm.test('[CRUD Step 1] id is auto-generated', function () {",
+                  "    pm.expect(pm.response.json().id).to.be.a('string').and.not.empty;",
+                  "});",
+                  "",
+                  "pm.test('[CRUD Step 1] createdAt is present', function () {",
+                  "    pm.expect(pm.response.json().createdAt).to.be.a('number');",
+                  "});",
+                  "",
+                  "// Persist created ID for all subsequent CRUD steps",
+                  "pm.collectionVariables.set('crudObjectId', pm.response.json().id);"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Samsung Galaxy S23 Ultra\",\n  \"data\": {\n    \"color\": \"Phantom Black\",\n    \"storage\": \"256 GB\",\n    \"price\": 1199.99,\n    \"year\": 2023\n  }\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/objects",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "objects"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "[FLOW] Full CRUD - Step 2: Read created object",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('[CRUD Step 2] Status 200 — object readable', function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test('[CRUD Step 2] Response time under 1000ms', function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(1000);",
+                  "});",
+                  "",
+                  "pm.test('[CRUD Step 2] Returned object matches created ID', function () {",
+                  "    pm.expect(pm.response.json().id).to.equal(pm.collectionVariables.get('crudObjectId'));",
+                  "});",
+                  "",
+                  "pm.test('[CRUD Step 2] Name matches creation payload', function () {",
+                  "    pm.expect(pm.response.json().name).to.equal('Samsung Galaxy S23 Ultra');",
+                  "});",
+                  "",
+                  "pm.test('[CRUD Step 2] data fields match creation payload', function () {",
+                  "    const data = pm.response.json().data;",
+                  "    pm.expect(data.color).to.equal('Phantom Black');",
+                  "    pm.expect(data.storage).to.equal('256 GB');",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/objects/{{crudObjectId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "objects",
+                "{{crudObjectId}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "[FLOW] Full CRUD - Step 3: Full replace with PUT",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('[CRUD Step 3] Status 200 — PUT succeeded', function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test('[CRUD Step 3] Response time under 1000ms', function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(1000);",
+                  "});",
+                  "",
+                  "pm.test('[CRUD Step 3] Name is fully replaced', function () {",
+                  "    pm.expect(pm.response.json().name).to.equal('Samsung Galaxy S23 Ultra — Replaced');",
+                  "});",
+                  "pm.test('[CRUD Step 3] color is fully replaced', function () {",
+                  "    pm.expect(pm.response.json().data.color).to.equal('Cream');",
+                  "});",
+                  "pm.test('[CRUD Step 3] storage is fully replaced', function () {",
+                  "    pm.expect(pm.response.json().data.storage).to.equal('512 GB');",
+                  "",
+                  "});",
+                  "pm.test('[CRUD Step 3] data.replaced flag is present (new field)', function () {",
+                  "    pm.expect(pm.response.json().data.replaced).to.equal(true);",
+                  "});",
+                  "",
+                  "pm.test('[CRUD Step 3] updatedAt is present after PUT', function () {",
+                  "    pm.expect(pm.response.json()).to.have.property('updatedAt');",
+                  "});",
+                  "",
+                  "pm.test('[CRUD Step 3] ID unchanged after PUT', function () {",
+                  "    pm.expect(pm.response.json().id).to.equal(pm.collectionVariables.get('crudObjectId'));",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Samsung Galaxy S23 Ultra — Replaced\",\n  \"data\": {\n    \"color\": \"Cream\",\n    \"storage\": \"512 GB\",\n    \"price\": 1299.99,\n    \"year\": 2023,\n    \"replaced\": true\n  }\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/objects/{{crudObjectId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "objects",
+                "{{crudObjectId}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "[FLOW] Full CRUD - Step 4: Partial update with PATCH",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('[CRUD Step 4] Status 200 — PATCH succeeded', function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test('[CRUD Step 4] Response time under 1000ms', function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(1000);",
+                  "});",
+                  "",
+                  "pm.test('[CRUD Step 4] Name is updated by PATCH', function () {",
+                  "    pm.expect(pm.response.json().name).to.equal('Samsung Galaxy S23 Ultra — Patched');",
+                  "});",
+                  "",
+                  "pm.test('[CRUD Step 4] Patched color in data', function () {",
+                  "    pm.expect(pm.response.json().data.color).to.equal('Green');",
+                  "});",
+                  "",
+                  "pm.test('[CRUD Step 4] updatedAt is present after PATCH', function () {",
+                  "    pm.expect(pm.response.json()).to.have.property('updatedAt');",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Samsung Galaxy S23 Ultra — Patched\",\n  \"data\": { \"color\": \"Green\" }\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/objects/{{crudObjectId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "objects",
+                "{{crudObjectId}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "[FLOW] Full CRUD - Step 5: Delete object",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('[CRUD Step 5] Status 200 — object deleted', function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test('[CRUD Step 5] Response time under 1000ms', function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(1000);",
+                  "});",
+                  "",
+                  "pm.test('[CRUD Step 5] Deletion message is present', function () {",
+                  "    pm.expect(pm.response.json()).to.have.property('message');",
+                  "});",
+                  "",
+                  "pm.test('[CRUD Step 5] Message references the deleted ID', function () {",
+                  "    const id = pm.collectionVariables.get('crudObjectId');",
+                  "    pm.expect(pm.response.json().message).to.include(id);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/objects/{{crudObjectId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "objects",
+                "{{crudObjectId}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "[FLOW] Full CRUD - Step 6: Verify object is gone (GET returns 404)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('[CRUD Step 6] Status 404 — deleted object is gone', function () {",
+                  "    pm.response.to.have.status(404);",
+                  "});",
+                  "",
+                  "pm.test('[CRUD Step 6] Response time under 1000ms', function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(1000);",
+                  "});",
+                  "",
+                  "pm.test('[CRUD Step 6] Error body confirms object not found', function () {",
+                  "    pm.expect(pm.response.json()).to.have.property('error');",
+                  "});",
+                  "",
+                  "// Clean up flow variable",
+                  "pm.collectionVariables.set('crudObjectId', '');"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/objects/{{crudObjectId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "objects",
+                "{{crudObjectId}}"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "FLOW List and Retrieve",
+      "item": [
+        {
+          "name": "[FLOW] List and Retrieve - Step 1: List all objects and extract random ID",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('[L&R Step 1] Status 200 — list returned', function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test('[L&R Step 1] Response time under 1000ms', function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(1000);",
+                  "});",
+                  "",
+                  "pm.test('[L&R Step 1] Response is a non-empty array', function () {",
+                  "    const body = pm.response.json();",
+                  "    pm.expect(body).to.be.an('array').with.length.greaterThan(0);",
+                  "});",
+                  "",
+                  "// Extract a random ID and store the first three IDs for filtering",
+                  "const objects = pm.response.json();",
+                  "const idx = Math.floor(Math.random() * objects.length);",
+                  "pm.collectionVariables.set('randomObjectId', objects[idx].id);",
+                  "pm.collectionVariables.set('filterIdA', objects[0].id);",
+                  "pm.collectionVariables.set('filterIdB', objects[1 < objects.length ? 1 : 0].id);",
+                  "pm.collectionVariables.set('filterIdC', objects[2 < objects.length ? 2 : 0].id);",
+                  "",
+                  "pm.test('[L&R Step 1] Random ID extracted and stored', function () {",
+                  "    pm.expect(pm.collectionVariables.get('randomObjectId')).to.not.be.empty;",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/objects",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "objects"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "[FLOW] List and Retrieve - Step 2: Get object by extracted random ID",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('[L&R Step 2] Status 200 — random object found', function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test('[L&R Step 2] Response time under 1000ms', function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(1000);",
+                  "});",
+                  "",
+                  "pm.test('[L&R Step 2] Returned id matches the stored random ID', function () {",
+                  "    const expectedId = pm.collectionVariables.get('randomObjectId');",
+                  "    pm.expect(pm.response.json().id).to.equal(expectedId);",
+                  "});",
+                  "",
+                  "pm.test('[L&R Step 2] Object schema valid: id, name, data present', function () {",
+                  "    const body = pm.response.json();",
+                  "    pm.expect(body).to.have.property('id');",
+                  "    pm.expect(body).to.have.property('name');",
+                  "    pm.expect(body).to.have.property('data');",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/objects/{{randomObjectId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "objects",
+                "{{randomObjectId}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "[FLOW] List and Retrieve - Step 3: Filter objects by three extracted IDs",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('[L&R Step 3] Status 200 — filtered list returned', function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test('[L&R Step 3] Response time under 1000ms', function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(1000);",
+                  "});",
+                  "",
+                  "pm.test('[L&R Step 3] All three requested IDs are present in the result', function () {",
+                  "    const ids = pm.response.json().map(function (o) { return o.id; });",
+                  "    const a = pm.collectionVariables.get('filterIdA');",
+                  "    const b = pm.collectionVariables.get('filterIdB');",
+                  "    const c = pm.collectionVariables.get('filterIdC');",
+                  "    // If a == b == c (single unique ID), result length is 1",
+                  "    const uniqueExpected = [...new Set([a, b, c])];",
+                  "    uniqueExpected.forEach(function (id) {",
+                  "        pm.expect(ids).to.include(id);",
+                  "    });",
+                  "});",
+                  "",
+                  "pm.test('[L&R Step 3] Result contains only requested IDs', function () {",
+                  "    const allowed = [",
+                  "        pm.collectionVariables.get('filterIdA'),",
+                  "        pm.collectionVariables.get('filterIdB'),",
+                  "        pm.collectionVariables.get('filterIdC')",
+                  "    ];",
+                  "    pm.response.json().forEach(function (obj) {",
+                  "        pm.expect(allowed).to.include(obj.id);",
+                  "    });",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/objects?id={{filterIdA}}&id={{filterIdB}}&id={{filterIdC}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "objects"
+              ],
+              "query": [
+                {
+                  "key": "id",
+                  "value": "{{filterIdA}}"
+                },
+                {
+                  "key": "id",
+                  "value": "{{filterIdB}}"
+                },
+                {
+                  "key": "id",
+                  "value": "{{filterIdC}}"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.restful-api.dev"
+    },
+    {
+      "key": "crudObjectId",
+      "value": ""
+    },
+    {
+      "key": "randomObjectId",
+      "value": ""
+    },
+    {
+      "key": "filterIdA",
+      "value": ""
+    },
+    {
+      "key": "filterIdB",
+      "value": ""
+    },
+    {
+      "key": "filterIdC",
+      "value": ""
+    }
+  ]
+}

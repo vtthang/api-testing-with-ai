@@ -1,0 +1,493 @@
+{
+	"id": "4ccb19c4-dd52-4539-bcd7-842604acd65b",
+	"name": "INTEGRATION TEST FLOW",
+	"timestamp": "2026-04-18T08:21:11.364Z",
+	"collection_id": "12700149-e2b10b29-c776-4921-b2c0-bff4f692479c",
+	"folder_id": 0,
+	"environment_id": "0",
+	"totalPass": 41,
+	"delay": 0,
+	"persist": true,
+	"status": "finished",
+	"startedAt": "2026-04-18T08:21:09.607Z",
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "417a6029-c84f-42f4-be11-d66ce4f02ffb",
+			"name": "[FLOW] Full CRUD - Step 1: Create new object",
+			"url": "https://api.restful-api.dev/objects",
+			"time": 295,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"[CRUD Step 1] Status 200 — object created": true,
+				"[CRUD Step 1] Response time under 1000ms": true,
+				"[CRUD Step 1] id is auto-generated": true,
+				"[CRUD Step 1] createdAt is present": true
+			},
+			"testPassFailCounts": {
+				"[CRUD Step 1] Status 200 — object created": {
+					"pass": 1,
+					"fail": 0
+				},
+				"[CRUD Step 1] Response time under 1000ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"[CRUD Step 1] id is auto-generated": {
+					"pass": 1,
+					"fail": 0
+				},
+				"[CRUD Step 1] createdAt is present": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				295
+			],
+			"allTests": [
+				{
+					"[CRUD Step 1] Status 200 — object created": true,
+					"[CRUD Step 1] Response time under 1000ms": true,
+					"[CRUD Step 1] id is auto-generated": true,
+					"[CRUD Step 1] createdAt is present": true
+				}
+			]
+		},
+		{
+			"id": "9f353185-d2f5-418c-bf50-09abeaff2a1f",
+			"name": "[FLOW] Full CRUD - Step 2: Read created object",
+			"url": "https://api.restful-api.dev/objects/ff8081819d82fab6019d9fadf13a254c",
+			"time": 122,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"[CRUD Step 2] Status 200 — object readable": true,
+				"[CRUD Step 2] Response time under 1000ms": true,
+				"[CRUD Step 2] Returned object matches created ID": true,
+				"[CRUD Step 2] Name matches creation payload": true,
+				"[CRUD Step 2] data fields match creation payload": true
+			},
+			"testPassFailCounts": {
+				"[CRUD Step 2] Status 200 — object readable": {
+					"pass": 1,
+					"fail": 0
+				},
+				"[CRUD Step 2] Response time under 1000ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"[CRUD Step 2] Returned object matches created ID": {
+					"pass": 1,
+					"fail": 0
+				},
+				"[CRUD Step 2] Name matches creation payload": {
+					"pass": 1,
+					"fail": 0
+				},
+				"[CRUD Step 2] data fields match creation payload": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				122
+			],
+			"allTests": [
+				{
+					"[CRUD Step 2] Status 200 — object readable": true,
+					"[CRUD Step 2] Response time under 1000ms": true,
+					"[CRUD Step 2] Returned object matches created ID": true,
+					"[CRUD Step 2] Name matches creation payload": true,
+					"[CRUD Step 2] data fields match creation payload": true
+				}
+			]
+		},
+		{
+			"id": "43d79196-f087-4020-94c5-a1f8730ea160",
+			"name": "[FLOW] Full CRUD - Step 3: Full replace with PUT",
+			"url": "https://api.restful-api.dev/objects/ff8081819d82fab6019d9fadf13a254c",
+			"time": 136,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"[CRUD Step 3] Status 200 — PUT succeeded": true,
+				"[CRUD Step 3] Response time under 1000ms": true,
+				"[CRUD Step 3] Name is fully replaced": true,
+				"[CRUD Step 3] color is fully replaced": true,
+				"[CRUD Step 3] storage is fully replaced": true,
+				"[CRUD Step 3] data.replaced flag is present (new field)": true,
+				"[CRUD Step 3] updatedAt is present after PUT": true,
+				"[CRUD Step 3] ID unchanged after PUT": true
+			},
+			"testPassFailCounts": {
+				"[CRUD Step 3] Status 200 — PUT succeeded": {
+					"pass": 1,
+					"fail": 0
+				},
+				"[CRUD Step 3] Response time under 1000ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"[CRUD Step 3] Name is fully replaced": {
+					"pass": 1,
+					"fail": 0
+				},
+				"[CRUD Step 3] color is fully replaced": {
+					"pass": 1,
+					"fail": 0
+				},
+				"[CRUD Step 3] storage is fully replaced": {
+					"pass": 1,
+					"fail": 0
+				},
+				"[CRUD Step 3] data.replaced flag is present (new field)": {
+					"pass": 1,
+					"fail": 0
+				},
+				"[CRUD Step 3] updatedAt is present after PUT": {
+					"pass": 1,
+					"fail": 0
+				},
+				"[CRUD Step 3] ID unchanged after PUT": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				136
+			],
+			"allTests": [
+				{
+					"[CRUD Step 3] Status 200 — PUT succeeded": true,
+					"[CRUD Step 3] Response time under 1000ms": true,
+					"[CRUD Step 3] Name is fully replaced": true,
+					"[CRUD Step 3] color is fully replaced": true,
+					"[CRUD Step 3] storage is fully replaced": true,
+					"[CRUD Step 3] data.replaced flag is present (new field)": true,
+					"[CRUD Step 3] updatedAt is present after PUT": true,
+					"[CRUD Step 3] ID unchanged after PUT": true
+				}
+			]
+		},
+		{
+			"id": "3e2cbe88-e1fb-4039-bbc5-c909ffb70171",
+			"name": "[FLOW] Full CRUD - Step 4: Partial update with PATCH",
+			"url": "https://api.restful-api.dev/objects/ff8081819d82fab6019d9fadf13a254c",
+			"time": 128,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"[CRUD Step 4] Status 200 — PATCH succeeded": true,
+				"[CRUD Step 4] Response time under 1000ms": true,
+				"[CRUD Step 4] Name is updated by PATCH": true,
+				"[CRUD Step 4] Patched color in data": true,
+				"[CRUD Step 4] updatedAt is present after PATCH": true
+			},
+			"testPassFailCounts": {
+				"[CRUD Step 4] Status 200 — PATCH succeeded": {
+					"pass": 1,
+					"fail": 0
+				},
+				"[CRUD Step 4] Response time under 1000ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"[CRUD Step 4] Name is updated by PATCH": {
+					"pass": 1,
+					"fail": 0
+				},
+				"[CRUD Step 4] Patched color in data": {
+					"pass": 1,
+					"fail": 0
+				},
+				"[CRUD Step 4] updatedAt is present after PATCH": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				128
+			],
+			"allTests": [
+				{
+					"[CRUD Step 4] Status 200 — PATCH succeeded": true,
+					"[CRUD Step 4] Response time under 1000ms": true,
+					"[CRUD Step 4] Name is updated by PATCH": true,
+					"[CRUD Step 4] Patched color in data": true,
+					"[CRUD Step 4] updatedAt is present after PATCH": true
+				}
+			]
+		},
+		{
+			"id": "b973812a-485c-4130-8746-24a2228e1824",
+			"name": "[FLOW] Full CRUD - Step 5: Delete object",
+			"url": "https://api.restful-api.dev/objects/ff8081819d82fab6019d9fadf13a254c",
+			"time": 162,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"[CRUD Step 5] Status 200 — object deleted": true,
+				"[CRUD Step 5] Response time under 1000ms": true,
+				"[CRUD Step 5] Deletion message is present": true,
+				"[CRUD Step 5] Message references the deleted ID": true
+			},
+			"testPassFailCounts": {
+				"[CRUD Step 5] Status 200 — object deleted": {
+					"pass": 1,
+					"fail": 0
+				},
+				"[CRUD Step 5] Response time under 1000ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"[CRUD Step 5] Deletion message is present": {
+					"pass": 1,
+					"fail": 0
+				},
+				"[CRUD Step 5] Message references the deleted ID": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				162
+			],
+			"allTests": [
+				{
+					"[CRUD Step 5] Status 200 — object deleted": true,
+					"[CRUD Step 5] Response time under 1000ms": true,
+					"[CRUD Step 5] Deletion message is present": true,
+					"[CRUD Step 5] Message references the deleted ID": true
+				}
+			]
+		},
+		{
+			"id": "555cc4fd-b82a-4c1f-9225-fd7766d973c5",
+			"name": "[FLOW] Full CRUD - Step 6: Verify object is gone (GET returns 404)",
+			"url": "https://api.restful-api.dev/objects/ff8081819d82fab6019d9fadf13a254c",
+			"time": 147,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"[CRUD Step 6] Status 404 — deleted object is gone": true,
+				"[CRUD Step 6] Response time under 1000ms": true,
+				"[CRUD Step 6] Error body confirms object not found": true
+			},
+			"testPassFailCounts": {
+				"[CRUD Step 6] Status 404 — deleted object is gone": {
+					"pass": 1,
+					"fail": 0
+				},
+				"[CRUD Step 6] Response time under 1000ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"[CRUD Step 6] Error body confirms object not found": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				147
+			],
+			"allTests": [
+				{
+					"[CRUD Step 6] Status 404 — deleted object is gone": true,
+					"[CRUD Step 6] Response time under 1000ms": true,
+					"[CRUD Step 6] Error body confirms object not found": true
+				}
+			]
+		},
+		{
+			"id": "9bac9c5d-2a39-4143-82b6-adb9bd39a24c",
+			"name": "[FLOW] List and Retrieve - Step 1: List all objects and extract random ID",
+			"url": "https://api.restful-api.dev/objects",
+			"time": 129,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"[L&R Step 1] Status 200 — list returned": true,
+				"[L&R Step 1] Response time under 1000ms": true,
+				"[L&R Step 1] Response is a non-empty array": true,
+				"[L&R Step 1] Random ID extracted and stored": true
+			},
+			"testPassFailCounts": {
+				"[L&R Step 1] Status 200 — list returned": {
+					"pass": 1,
+					"fail": 0
+				},
+				"[L&R Step 1] Response time under 1000ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"[L&R Step 1] Response is a non-empty array": {
+					"pass": 1,
+					"fail": 0
+				},
+				"[L&R Step 1] Random ID extracted and stored": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				129
+			],
+			"allTests": [
+				{
+					"[L&R Step 1] Status 200 — list returned": true,
+					"[L&R Step 1] Response time under 1000ms": true,
+					"[L&R Step 1] Response is a non-empty array": true,
+					"[L&R Step 1] Random ID extracted and stored": true
+				}
+			]
+		},
+		{
+			"id": "4c468a8f-57bf-4957-9bdf-4964b61361a2",
+			"name": "[FLOW] List and Retrieve - Step 2: Get object by extracted random ID",
+			"url": "https://api.restful-api.dev/objects/8",
+			"time": 122,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"[L&R Step 2] Status 200 — random object found": true,
+				"[L&R Step 2] Response time under 1000ms": true,
+				"[L&R Step 2] Returned id matches the stored random ID": true,
+				"[L&R Step 2] Object schema valid: id, name, data present": true
+			},
+			"testPassFailCounts": {
+				"[L&R Step 2] Status 200 — random object found": {
+					"pass": 1,
+					"fail": 0
+				},
+				"[L&R Step 2] Response time under 1000ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"[L&R Step 2] Returned id matches the stored random ID": {
+					"pass": 1,
+					"fail": 0
+				},
+				"[L&R Step 2] Object schema valid: id, name, data present": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				122
+			],
+			"allTests": [
+				{
+					"[L&R Step 2] Status 200 — random object found": true,
+					"[L&R Step 2] Response time under 1000ms": true,
+					"[L&R Step 2] Returned id matches the stored random ID": true,
+					"[L&R Step 2] Object schema valid: id, name, data present": true
+				}
+			]
+		},
+		{
+			"id": "933db156-0ba8-4326-8227-4775823c53a3",
+			"name": "[FLOW] List and Retrieve - Step 3: Filter objects by three extracted IDs",
+			"url": "https://api.restful-api.dev/objects?id=1&id=2&id=3",
+			"time": 141,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"[L&R Step 3] Status 200 — filtered list returned": true,
+				"[L&R Step 3] Response time under 1000ms": true,
+				"[L&R Step 3] All three requested IDs are present in the result": true,
+				"[L&R Step 3] Result contains only requested IDs": true
+			},
+			"testPassFailCounts": {
+				"[L&R Step 3] Status 200 — filtered list returned": {
+					"pass": 1,
+					"fail": 0
+				},
+				"[L&R Step 3] Response time under 1000ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"[L&R Step 3] All three requested IDs are present in the result": {
+					"pass": 1,
+					"fail": 0
+				},
+				"[L&R Step 3] Result contains only requested IDs": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				141
+			],
+			"allTests": [
+				{
+					"[L&R Step 3] Status 200 — filtered list returned": true,
+					"[L&R Step 3] Response time under 1000ms": true,
+					"[L&R Step 3] All three requested IDs are present in the result": true,
+					"[L&R Step 3] Result contains only requested IDs": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 1382,
+	"collection": {
+		"requests": [
+			{
+				"id": "417a6029-c84f-42f4-be11-d66ce4f02ffb",
+				"method": "POST"
+			},
+			{
+				"id": "9f353185-d2f5-418c-bf50-09abeaff2a1f",
+				"method": "GET"
+			},
+			{
+				"id": "43d79196-f087-4020-94c5-a1f8730ea160",
+				"method": "PUT"
+			},
+			{
+				"id": "3e2cbe88-e1fb-4039-bbc5-c909ffb70171",
+				"method": "PATCH"
+			},
+			{
+				"id": "b973812a-485c-4130-8746-24a2228e1824",
+				"method": "DELETE"
+			},
+			{
+				"id": "555cc4fd-b82a-4c1f-9225-fd7766d973c5",
+				"method": "GET"
+			},
+			{
+				"id": "9bac9c5d-2a39-4143-82b6-adb9bd39a24c",
+				"method": "GET"
+			},
+			{
+				"id": "4c468a8f-57bf-4957-9bdf-4964b61361a2",
+				"method": "GET"
+			},
+			{
+				"id": "933db156-0ba8-4326-8227-4775823c53a3",
+				"method": "GET"
+			}
+		]
+	}
+}
