@@ -1,17 +1,6 @@
-# Postman API Testing Portfolio
+# AI-Powered API Testing Portfolio
 
-This folder contains Postman collections and test results demonstrating API testing skills across **unit testing** and **integration/flow testing** for a RESTful `/objects` API.
-
----
-
-## Folder Contents
-
-| File | Description |
-|------|-------------|
-| `unit-test-collection.json` | Postman collection with unit tests for each endpoint |
-| `unit-test-result.json` | Test run results for unit tests |
-| `integration-test-collection.json` | Postman collection with end-to-end flow tests |
-| `integration-test-result.json` | Test run results for integration flows |
+This repository demonstrates API testing skills using **AI-assisted test case and script generation**, covering unit and integration testing for a RESTful `/objects` API.
 
 ---
 
@@ -31,11 +20,13 @@ All collections in this portfolio test the free public REST API provided by **[r
 ## Folder Structure
 
 ```
-Postman - Portfolio/
-├── unit-test-collection.json       # Unit test collection (36 requests, 6 endpoints)
-├── unit-test-result.json           # Unit test run result (95 passed / 40 failed)
-├── integration-test-collection.json  # Integration flow collection (9 requests, 2 flows)
-└── integration-test-result.json    # Integration test run result (41 passed / 0 failed)
+api-testing-with-ai/
+├── collection/
+│   ├── unit-test-collection.json         # Unit test collection (36 requests, 6 endpoints)
+│   └── integration-test-collection.json  # Integration flow collection (9 requests, 2 flows)
+└── result/
+    ├── unit-test-result.json             # Unit test run result (95 passed / 40 failed)
+    └── integration-test-result.json      # Integration test run result (41 passed / 0 failed)
 ```
 
 ---
@@ -104,11 +95,11 @@ Tests end-to-end user flows by chaining multiple requests and passing data betwe
 
 1. Open **Postman**
 2. Click **Import**
-3. Select the `.json` collection file
+3. Select the `.json` file from the `collection/` folder
 4. Run using the **Collection Runner** or via **Newman** (CLI)
 
 ```bash
 # Run with Newman (CLI)
-newman run unit-test-collection.json
-newman run integration-test-collection.json
+newman run collection/unit-test-collection.json
+newman run collection/integration-test-collection.json
 ```
